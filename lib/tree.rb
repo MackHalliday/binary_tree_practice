@@ -44,24 +44,20 @@ class BinarySearchTree
   end
 
   def search_tree(node, score)
-  
-    if score > node.score
-
-      if !node.right.nil && node.left.score == score
+    if !node.left.nil?
+      if node.left.score == score
         true
-      elsif
-        search_tree(node.left, score)
       else
-        false
+        search_tree(node.left, score)
+      end
+    elsif !node.right.nil?
+      if node.right.score == score
+        true
+      else
+        search_tree(node.right, score)
       end
     else
-      if !node.right.nil? && node.right.score == score
-        true
-      elsif
-        search_tree(node.right, score)
-      else
-        false
-      end
+      false
     end
   end
 end
